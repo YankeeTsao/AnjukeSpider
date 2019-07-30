@@ -7,10 +7,33 @@ from Anjuke.items import AnjukeSZItem
 class AnjukeSpider(CrawlSpider):
     name = 'anjuke_sz'
     allowed_domains = ['anjuke.com']
-    start_urls = ['https://shenzhen.anjuke.com/sale/p1']
+#   由于安居客有50页的访问限制，直接访问“所有”二手房收集到的信息不够全，所以增加了深圳各区的二手房页面作为start_urls
+    start_urls = [
+            'https://shenzhen.anjuke.com/sale/all/p1',
+            'https://shenzhen.anjuke.com/sale/longgang/p1',
+            'https://shenzhen.anjuke.com/sale/nanshan/p1',
+            'https://shenzhen.anjuke.com/sale/baoan/p1',
+            'https://shenzhen.anjuke.com/sale/futian/p1',
+            'https://shenzhen.anjuke.com/sale/longhuaq/p1',
+            'https://shenzhen.anjuke.com/sale/luohu/p1',
+            'https://shenzhen.anjuke.com/sale/bujisz/p1',
+            'https://shenzhen.anjuke.com/sale/yantian/p1',
+            'https://shenzhen.anjuke.com/sale/pingshanq/m32-p1',
+            'https://shenzhen.anjuke.com/sale/guangmingx/m32-p1',
+    ]
 
     rules = [
-            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/all/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/longgang/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/nanshan/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/baoan/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/futian/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/longhuaq/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/luohu/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/bujisz/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/yantian/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/pingshanq/m32-p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/guangmingx/m32-p\d{1,}"))),
             Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/prop/view/A\d{1,}")), callback='parse_item', follow=False)
     ]
 
