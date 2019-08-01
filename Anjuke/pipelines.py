@@ -9,7 +9,7 @@ import json
 
 class AnjukePipeline_ToCSV(object):
     def __init__(self):
-        self.f = open("anjuke.csv", "a", newline="")
+        self.f = open("anjuke.csv", "a+", newline="")
         self.fieldnames = ["bd_name", "bd_location", "bd_buildTime", "bd_type", "bd_property", "bd_layout", "bd_size", "bd_direction", "bd_floor", "bd_lift", "bd_averagePrice", "bd_totalPrice", "bd_oneHand", "bd_decoration", "bd_url"]
         self.writer = csv.DictWriter(self.f, fieldnames=self.fieldnames)
         self.writer.writeheader()

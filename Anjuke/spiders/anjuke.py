@@ -18,8 +18,8 @@ class AnjukeSpider(CrawlSpider):
             'https://shenzhen.anjuke.com/sale/luohu/p1',
             'https://shenzhen.anjuke.com/sale/bujisz/p1',
             'https://shenzhen.anjuke.com/sale/yantian/p1',
-            'https://shenzhen.anjuke.com/sale/pingshanq/m32-p1',
-            'https://shenzhen.anjuke.com/sale/guangmingx/m32-p1',
+            'https://shenzhen.anjuke.com/sale/pingshanq/p1',
+            'https://shenzhen.anjuke.com/sale/guangmingx/p1',
     ]
 
     rules = [
@@ -32,8 +32,8 @@ class AnjukeSpider(CrawlSpider):
             Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/luohu/p\d{1,}"))),
             Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/bujisz/p\d{1,}"))),
             Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/yantian/p\d{1,}"))),
-            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/pingshanq/m32-p\d{1,}"))),
-            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/guangmingx/m32-p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/pingshanq/p\d{1,}"))),
+            Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/sale/guangmingx/p\d{1,}"))),
             Rule(LinkExtractor(allow=("https://shenzhen\.anjuke\.com/prop/view/A\d{1,}")), callback='parse_item', follow=False)
     ]
 
